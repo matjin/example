@@ -114,6 +114,11 @@ namespace Examples
             SWGlobal.Close();
             Console.WriteLine("Close is called");
         }
+        
+        public void IntraProceduralNullDereference() {
+            object c = null;
+            var h = c.HashCode();
+        }
 
     }
 
