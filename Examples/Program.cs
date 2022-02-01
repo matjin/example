@@ -117,7 +117,7 @@ namespace Examples
         
         public void IntraProceduralNullDereference() {
             object c = null;
-            var h = c.HashCode();
+            var h = c.GetHashCode();
         }
 
     }
