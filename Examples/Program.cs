@@ -44,6 +44,13 @@ namespace Examples
             var y = x?.SWGlobal;
             y.GetHashCode();
         }
+
+
+        public void NullDerefBad2()
+        {
+            ImReturningNull().GetHashCode();
+            object ImReturningNull() => null;
+        }
     }
 
     public class MainClass {
