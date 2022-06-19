@@ -120,6 +120,28 @@ namespace Examples
             var h = c.GetHashCode();
         }
 
+        public void NullDerefOK1()
+        {
+            int x = 4;
+            while(x == 4)
+            {
+                Console.WriteLine("HELLO WORLD!!");
+            }
+            object c = null;
+            c.GetHashCode();
+
+        }
+
+        public void NullDerefOK2()
+        {
+            var x = new object();
+            if (x == null)
+            {
+                object c = null;
+                c.GetHashCode();
+            }
+        }
+
     }
 
     public class MainClass {
