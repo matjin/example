@@ -289,6 +289,12 @@ class InferResourceLeakTests
         return new FileStream("MyFile.txt", FileMode.Create);
     }
 
+    public static void LeakCustomDisposableShouldReport()
+    {
+        var tad = new TakeAndDispose(CreateStreamOk());
+    }
+
+
     public static TakeAndDispose PassDisposableToCustomDisposableOk()
     {
         Stream stream = new FileStream("MyFile", FileMode.Open);
