@@ -10,6 +10,11 @@ using subproj;
 using System.Data.SqlTypes;
 using System.Xml;
 
+
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
 // Expect 2 TAINT_ERROR for SQL injection flows.
 public class PulseTaintTests
 {
@@ -69,6 +74,54 @@ public class ThreadSafety
         }
     }
 
+    public static void testExn()
+    {
+        var y = new object();
+        try 
+        {
+            var x = new object();
+            try
+            {
+                var x3 = new object();
+            }
+            finally
+            {
+                var y3 = new object();
+                try
+                {
+                    var x4 = new object();
+                }
+                catch (Exception e)
+                {
+                    var y4 = new object();
+                    try
+                    {
+                        var x5 = new object();
+                    }
+                    finally
+                    {
+                        var y5 = new object();
+                    }
+                }
+                finally
+                {
+                    var x5 = new object();
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            try
+            {
+                var x2 = new object();
+            }
+            finally
+            {
+                var y2 = new object();
+            }
+        }
+    }
+
     /// <summary>
     /// An example with no null dereference expected.
     /// </summary>
@@ -79,7 +132,7 @@ public class ThreadSafety
 
     /// <summary>
     /// An example with null dereference error expected.
-    /// </summary>
+    /// </summary> 
     public static string NullDeReferenceBad()
     {
         return null;
@@ -102,18 +155,6 @@ public class MainClass
 class InferResourceLeakTests
 {
     private static byte[] myBytes = new byte[] { 10, 4 };
-
-    /// <summary>
-    /// The "using" construct applies the generic IDisposable dispose in the bytecode, which is 
-    /// problematic when it is applied to a custom IDisposable object -- if translated directly,
-    /// this prevents the analysis from applying the spec it has for the custom IDisposable object
-    /// which in turn can cause false positive alerts for underlying IDisposable fields.
-    /// </summary>
-    public static void UsingOnCustomIDisposableOK()
-    {
-        Stream stream = new FileStream("MyFile", FileMode.Open);
-        using TakeAndDispose tad = new TakeAndDispose(stream);
-    }
 
     public static void UsageCanThrowShouldReport()
     {
