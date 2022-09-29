@@ -1,0 +1,15 @@
+C:\Users\matjin\source\repos\infersharp\Examples\subproj\bin\Debug\net5.0\subproj.deps.json
+C:\Users\matjin\source\repos\infersharp\Examples\subproj\bin\Debug\net5.0\subproj.dll
+C:\Users\matjin\source\repos\infersharp\Examples\subproj\bin\Debug\net5.0\subproj.pdb
+C:\Users\matjin\source\repos\infersharp\Examples\subproj\obj\Debug\net5.0\subproj.csproj.AssemblyReference.cache
+C:\Users\matjin\source\repos\infersharp\Examples\subproj\obj\Debug\net5.0\subproj.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matjin\source\repos\infersharp\Examples\subproj\obj\Debug\net5.0\subproj.AssemblyInfoInputs.cache
+C:\Users\matjin\source\repos\infersharp\Examples\subproj\obj\Debug\net5.0\subproj.AssemblyInfo.cs
+C:\Users\matjin\source\repos\infersharp\Examples\subproj\obj\Debug\net5.0\subproj.csproj.CoreCompileInputs.cache
+C:\Users\matjin\source\repos\infersharp\Examples\subproj\obj\Debug\net5.0\scopedcss\bundle\subproj.styles.css
+C:\Users\matjin\source\repos\infersharp\Examples\subproj\obj\Debug\net5.0\staticwebassets\subproj.StaticWebAssets.Manifest.cache
+C:\Users\matjin\source\repos\infersharp\Examples\subproj\obj\Debug\net5.0\subproj.RazorTargetAssemblyInfo.cache
+C:\Users\matjin\source\repos\infersharp\Examples\subproj\obj\Debug\net5.0\subproj.dll
+C:\Users\matjin\source\repos\infersharp\Examples\subproj\obj\Debug\net5.0\refint\subproj.dll
+C:\Users\matjin\source\repos\infersharp\Examples\subproj\obj\Debug\net5.0\subproj.pdb
+C:\Users\matjin\source\repos\infersharp\Examples\subproj\obj\Debug\net5.0\ref\subproj.dll
