@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.Http;
 using subproj;
 using System.Data.SqlTypes;
 using System.Xml;
-
+using System.Net.Sockets;
+using System.Runtime.Versioning;
 
 using System.Collections.Generic;
 using System.IO;
@@ -150,6 +151,35 @@ public class MainClass
         ThreadSafety.NullDeReferenceOK().GetHashCode();
     }
 }
+
+    [SupportedOSPlatform("windows")]
+    public class OwnsResources : IDisposable
+    {
+        private Socket socket;
+
+        private FileStream stream { get; set; } = new FileStream("test", FileMode.Create);
+
+        public OwnsResources(SocketInformation info)
+        {
+            socket = new Socket(info);
+            stream = new FileStream("test", FileMode.Create);
+        }
+
+        public void Dispose()
+        {
+            stream?.Dispose();
+            socket?.Dispose();
+        }
+
+        public static void LeakOrNot()
+        {
+            using (var myClass = new OwnsResources(new SocketInformation()))
+            {
+                myClass.stream.Flush();
+            }
+        }
+    }
+
 
 // 13 reports expected (14 with --pulse-increase-leak-recall flag)
 class InferResourceLeakTests
